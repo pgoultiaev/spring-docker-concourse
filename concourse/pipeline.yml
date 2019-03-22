@@ -18,22 +18,22 @@ jobs:
     file: spring-gitrepo/concourse/tasks/build.yml
 
 - name: build-gradle
-    plan:
-      - get: spring-gitrepo
-        trigger: true
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-                repository: gradle
-                tag: '5.3-alpine'
-          inputs:
-            - name: spring-gitrepo
-          run:
-            dir: spring-gitrepo
-            path: gradle
-            user: root
-            args:
-              - build
+  plan:
+  - get: spring-gitrepo
+    trigger: true
+  - task: build
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+            repository: gradle
+            tag: '5.3-alpine'
+      inputs:
+        - name: spring-gitrepo
+      run:
+        dir: spring-gitrepo
+        path: gradle
+        user: root
+        args:
+          - build
