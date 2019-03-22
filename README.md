@@ -1,11 +1,11 @@
 # spring-docker-concourse [WIP]
 
-GIVEN an app with a stack consisting of
-- spring boot
-- gradle
-- cucumber
-WHEN a commit is pushed
-THEN the pipeline should
+**GIVEN** an app with a stack consisting of
+    - spring boot
+    - gradle
+    - cucumber
+<br>**WHEN** a commit is pushed
+<br>**THEN** the pipeline should
 - build a docker image
 - use a versioning strategy that
     - allows every commit to go to production
