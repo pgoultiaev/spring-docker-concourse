@@ -9,4 +9,4 @@ inputs:
 - name: spring-gitrepo
 
 run:
-  path: spring-gitrepo/concourse/unittest.sh
+  path: spring-gitrepo/concourse/scripts/unittest.sh

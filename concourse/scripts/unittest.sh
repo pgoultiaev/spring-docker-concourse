@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd spring-gitrepo
-./gradlew --no-daemon build
+./gradlew --no-daemon test
