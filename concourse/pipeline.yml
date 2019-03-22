@@ -12,7 +12,7 @@ jobs:
   - get: spring-gitrepo
     trigger: true
   - task: list-files
-    file: spring-gitrepo/tasks/list-files.yml
+    file: spring-gitrepo/concourse/tasks/list-files.yml
 
 - name: job-unit-test
   public: true
@@ -20,4 +20,4 @@ jobs:
   - get: spring-gitrepo
     trigger: true
   - task: unit-test
-    file: spring-gitrepo/tasks/unit-test.yml
+    file: spring-gitrepo/concourse/tasks/unit-test.yml
