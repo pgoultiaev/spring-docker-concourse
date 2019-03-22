@@ -2,22 +2,17 @@
 resources:
 - name: spring-gitrepo
   type: git
+  check_every: 10s
   source:
     uri: https://github.com/pgoultiaev/spring-docker-concourse.git
 
 jobs:
-- name: job-list-files
-  public: true
-  plan:
-  - get: spring-gitrepo
-    trigger: true
-  - task: list-files
-    file: spring-gitrepo/concourse/tasks/list-files.yml
-
-- name: job-unit-test
+- name: build-and-test
   public: true
   plan:
   - get: spring-gitrepo
     trigger: true
   - task: unit-test
     file: spring-gitrepo/concourse/tasks/unit-test.yml
+  - task: build
+    file: spring-gitrepo/concourse/tasks/build.yml
