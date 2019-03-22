@@ -3,13 +3,13 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: openjdk, tag: 8-jdk-alpine}
+  source: {repository: gradle, tag: 5.3-alpine}
 
 inputs:
-- name: spring-gitrepo
+  - name: spring-gitrepo
 
 outputs:
-- name: build-output
+  - name: build-jar
 
 run:
   path: spring-gitrepo/concourse/scripts/build.sh
