@@ -6,7 +6,7 @@ image_resource:
   source: {repository: busybox, tag: latest}
 
 inputs:
-- name: tutorial-gitrepo
+- name: spring-gitrepo
 
 run:
   path: ls
