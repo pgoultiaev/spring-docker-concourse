@@ -6,10 +6,18 @@ resources:
     uri: https://github.com/pgoultiaev/spring-docker-concourse.git
 
 jobs:
-- name: job-get-repo
+- name: job-list-files
   public: true
   plan:
   - get: spring-gitrepo
     trigger: true
   - task: list-files
     file: spring-gitrepo/tasks/list-files.yml
+
+- name: job-unit-test
+  public: true
+  plan:
+  - get: spring-gitrepo
+    trigger: true
+  - task: unit-test
+    file: spring-gitrepo/tasks/unit-test.yml
