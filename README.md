@@ -1,4 +1,4 @@
-# spring-docker-concourse
+# spring-docker-concourse [WIP]
 
 GIVEN an app with a stack consisting of
 - spring boot
@@ -12,3 +12,4 @@ THEN the pipeline should
     - minimises manual versioning work
     - allows Devs to easily track a built   Docker image to its revision in git
 
+The idea is to implement this in [concourse-ci](https://concourse-ci.org/)
