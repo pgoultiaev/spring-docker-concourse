@@ -12,4 +12,5 @@ outputs:
   - name: build-jar
 
 run:
+  user: root
   path: spring-gitrepo/concourse/scripts/build.sh
