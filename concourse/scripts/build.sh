@@ -1,3 +1,2 @@
 #!/bin/sh
-set -e
-gradle build
+gradle --no-daemon build
