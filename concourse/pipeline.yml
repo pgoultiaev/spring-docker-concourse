@@ -1,27 +1,27 @@
 ---
 resources:
-- name: spring-gitrepo
-  type: git
-  check_every: 10s
-  source:
-    uri: https://github.com/pgoultiaev/spring-docker-concourse.git
+  - name: spring-gitrepo
+    type: git
+    check_every: 10s
+    source:
+      uri: https://github.com/pgoultiaev/spring-docker-concourse.git
 
-- name: gs-spring-boot-image
-  type: docker-image
-  source:
-    email: ((docker-hub-email))
-    username: ((docker-hub-username))
-    password: ((docker-hub-password))
-    repository: ((docker-hub-username))/gs-spring-boot
+  - name: gs-spring-boot-image
+    type: docker-image
+    source:
+      email: ((docker-hub-email))
+      username: ((docker-hub-username))
+      password: ((docker-hub-password))
+      repository: ((docker-hub-username))/gs-spring-boot
 
 jobs:
-- name: build-unit-test
-  public: true
-  plan:
-  - get: spring-gitrepo
-    trigger: true
-  - task: build
-    file: spring-gitrepo/concourse/tasks/build.yml
-  - put: gs-spring-boot-image
-    params:
-      build: build-jar
+  - name: build-unit-test
+    public: true
+    plan:
+      - get: spring-gitrepo
+        trigger: true
+      - task: build
+        file: spring-gitrepo/concourse/tasks/build.yml
+      - put: gs-spring-boot-image
+        params:
+          build: build-jar
