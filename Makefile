@@ -15,3 +15,13 @@ init-vault:
 unseal-vault:
 	VAULT_CACERT=vault/certs/vault-ca.crt vault operator unseal
 
+vault-write-policy:
+	VAULT_CACERT=vault/certs/vault-ca.crt vault policy write concourse ./vault/concourse-policy.hcl
+
+vault-enable-cert-backend:
+	export VAULT_CACERT=vault/certs/vault-ca.crt
+	vault auth enable cert
+	vault write auth/cert/certs/concourse \
+		policies=concourse \
+		certificate=@vault/certs/vault-ca.crt \
+		ttl=1h
